@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Interview Assistant - Real-time interview support system">
+    <title>AI Interview Assistant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        
+        .portal-card {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .portal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+        }
+        
+        .feature-badge {
+            background: rgba(102, 126, 234, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(102, 126, 234, 0.5);
+            backdrop-filter: blur(10px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 1rem;
+            }
+            
+            .portal-icon {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
+        <i class="bi bi-moon-stars" id="themeIcon"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Header -->
+                    <div class="text-center mb-5 animate-fade-up">
+                        <div class="mb-4">
+                            <h1 class="display-3 fw-bold text-white mb-3 neon-glow">
+                                <i class="bi bi-rocket-takeoff animate-float"></i> AI Interview Assistant
+                            </h1>
+                            <p class="lead text-white fs-4">
+                                Real-time AI-powered interview support system
+                            </p>
+                        </div>
+                        <div class="feature-badge d-inline-block mb-4 animate-glow">
+                            <i class="bi bi-lightning-charge-fill"></i> Live WebSocket Technology
+                        </div>
+                        <div class="feature-badge d-inline-block mb-4 animate-glow">
+                            <i class="bi bi-stars"></i> 70+ Interview Questions
+                        </div>
+                    </div>
+
+                    <!-- Portal Cards -->
+                    <div class="row g-4 mb-5">
+                        <div class="col-md-4">
+                            <a href="/receiver.html" class="portal-card">
+                                <div class="glass-card p-5 h-100 text-center animate-fade-up">
+                                    <div class="portal-icon">
+                                        <i class="bi bi-person-badge"></i>
+                                    </div>
+                                    <h3 class="fw-bold mb-2 gradient-text">Receiver</h3>
+                                    <p class="text-white-50 mb-4">Answer interview questions in real-time with AI assistance</p>
+                                    <span class="badge badge-custom">Get Started</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4">
+                            <a href="/sender.html" class="portal-card">
+                                <div class="glass-card p-5 h-100 text-center animate-fade-up" style="animation-delay: 0.1s;">
+                                    <div class="portal-icon">
+                                        <i class="bi bi-send"></i>
+                                    </div>
+                                    <h3 class="fw-bold mb-2 gradient-text">Sender</h3>
+                                    <p class="text-white-50 mb-4">Send questions & monitor responses in real-time</p>
+                                    <span class="badge badge-custom">Start Sending</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-4">
+                            <a href="/admin.html" class="portal-card">
+                                <div class="glass-card p-5 h-100 text-center animate-fade-up" style="animation-delay: 0.2s;">
+                                    <div class="portal-icon">
+                                        <i class="bi bi-gear"></i>
+                                    </div>
+                                    <h3 class="fw-bold mb-2 gradient-text">Admin</h3>
+                                    <p class="text-white-50 mb-4">Manage system, users & interview questions</p>
+                                    <span class="badge badge-custom">Admin Panel</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Demo Credentials -->
+                    <div class="glass-card p-5 animate-fade-up" style="animation-delay: 0.3s;">
+                        <h4 class="fw-bold mb-4 text-white neon-glow">
+                            <i class="bi bi-key"></i> Demo Credentials
+                        </h4>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="p-4 rounded stat-card-custom">
+                                    <div class="fw-bold mb-2 text-white">
+                                        <i class="bi bi-shield-lock"></i> Admin
+                                    </div>
+                                    <code class="text-white">admin / admin123</code>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 rounded stat-card-custom">
+                                    <div class="fw-bold mb-2 text-white">
+                                        <i class="bi bi-send"></i> Sender
+                                    </div>
+                                    <code class="text-white">sender1 / sender123</code>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-4 rounded stat-card-custom">
+                                    <div class="fw-bold mb-2 text-white">
+                                        <i class="bi bi-person"></i> Receiver
+                                    </div>
+                                    <code class="text-white">receiver1 / receiver123</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="text-center mt-5 text-white-50">
+                        <p class="mb-0">
+                            <i class="bi bi-heart-fill text-danger animate-glow"></i> Built with Spring Boot 3.4, WebSocket & Bootstrap 5
+                        </p>
+                        <p class="mt-2 small">
+                            <i class="bi bi-code-slash"></i> Java 21 | <i class="bi bi-database"></i> H2 Database | <i class="bi bi-wifi"></i> Real-time Communication
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            const currentTheme = html.getAttribute('data-bs-theme');
+            
+            if (currentTheme === 'light') {
+                html.setAttribute('data-bs-theme', 'dark');
+                icon.classList.remove('bi-moon-stars');
+                icon.classList.add('bi-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-bs-theme', 'light');
+                icon.classList.remove('bi-sun');
+                icon.classList.add('bi-moon-stars');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Load saved theme preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            
+            html.setAttribute('data-bs-theme', savedTheme);
+            if (savedTheme === 'dark') {
+                icon.classList.remove('bi-moon-stars');
+                icon.classList.add('bi-sun');
+            }
+        });
+    </script>
+</body>
+</html>
