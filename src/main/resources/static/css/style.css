@@ -5,7 +5,7 @@
     width: 10px;
     height: 10px;
 }
-/* full card */
+
 ::-webkit-scrollbar-track {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 }
