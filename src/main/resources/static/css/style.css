@@ -20,7 +20,7 @@
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
-/* Smooth Scrolling */
+/* Smooth Scrolling Effect*/
 html {
     scroll-behavior: smooth;
 }
