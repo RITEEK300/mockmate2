@@ -50,7 +50,7 @@ body {
         0 8px 32px 0 rgba(31, 38, 135, 0.37),
         inset 0 0 20px rgba(255, 255, 255, 0.1);
 }
-/* update */
+
 [data-bs-theme="dark"] .glass-card {
     background: rgba(15, 15, 25, 0.6);
     border-color: rgba(255, 255, 255, 0.15);
